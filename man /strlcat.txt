@@ -1,0 +1,153 @@
+STRLCPY(3bsd)                                 LOCAL                                STRLCPY(3bsd)
+
+NAME
+     strlcpy, strlcat — size-bounded string copying and concatenation
+
+LIBRARY
+     Utility functions from BSD systems (libbsd, -lbsd)
+
+SYNOPSIS
+     #include <string.h>
+     (See libbsd(7) for include usage.)
+
+     size_t
+     strlcpy(char *dst, const char *src, size_t size);
+
+     size_t
+     strlcat(char *dst, const char *src, size_t size);
+
+DESCRIPTION
+     The strlcpy() and strlcat() functions copy and concatenate strings respectively.  They are
+     designed to be safer, more consistent, and less error prone replacements for strncpy(3) and
+     strncat(3).  Unlike those functions, strlcpy() and strlcat() take the full size of the buf‐
+     fer (not just the length) and guarantee to NUL-terminate the result (as long as size is
+     larger than 0 or, in the case of strlcat(), as long as there is at least one byte free in
+     dst).  Note that a byte for the NUL should be included in size.  Also note that strlcpy()
+     and strlcat() only operate on true “C” strings.  This means that for strlcpy() src must be
+     NUL-terminated and for strlcat() both src and dst must be NUL-terminated.
+
+     The strlcpy() function copies up to size - 1 characters from the NUL-terminated string src
+     to dst, NUL-terminating the result.
+
+     The strlcat() function appends the NUL-terminated string src to the end of dst.  It will
+     append at most size - strlen(dst) - 1 bytes, NUL-terminating the result.
+
+     strlcpy() と strlcat() 関数は、それぞれ文字列のコピーと連結を行います。
+     これらは strncpy(3) と strncat(3) の、より安全で一貫性があり、エラーが起こりにくい代替手段として設計されています。
+
+     これらの関数は、長さだけでなく、バッファ全体のサイズ（size）を引数として受け取り、
+     （size が0より大きい場合、または strlcat() の場合は dst に少なくとも1バイトの空きがある場合）
+     必ずNUL終端された結果を保証します。
+
+     注意点として、NUL文字（'\0'）のためのバイトも size に含めなければなりません。
+     また、strlcpy() と strlcat() は本物の「C文字列」に対してのみ動作します。
+     つまり、strlcpy()では src がNUL終端されている必要があり、
+     strlcat()では src と dst の両方がNUL終端されている必要があります。
+
+     strlcpy() 関数は、NUL終端された文字列 src から dst に最大 size - 1 文字をコピーし、
+     その結果をNUL終端します。
+
+     strlcat() 関数は、NUL終端された文字列 src を dst の末尾に連結します。
+     追加できるのは最大で size - strlen(dst) - 1 バイトであり、結果をNUL終端します。
+
+
+
+RETURN VALUES
+     The strlcpy() and strlcat() functions return the total length of the string they tried to
+     create.  For strlcpy() that means the length of src.  For strlcat() that means the initial
+     length of dst plus the length of src.  While this may seem somewhat confusing, it was done
+     to make truncation detection simple.
+
+     Note, however, that if strlcat() traverses size characters without finding a NUL, the
+     length of the string is considered to be size and the destination string will not be NUL-
+     terminated (since there was no space for the NUL).  This keeps strlcat() from running off
+     the end of a string.  In practice this should not happen (as it means that either size is
+     incorrect or that dst is not a proper “C” string).  The check exists to prevent potential
+     security problems in incorrect code.
+
+     strlcpy() と strlcat() 関数は、作成しようとした文字列の合計長さを返します。
+
+     strlcpy() においては、これは src の長さを意味します。
+
+     strlcat() においては、これは 元の dst の長さに**src の長さを加えた値**を意味します。
+
+     この仕様は少しややこしく見えるかもしれませんが、
+     切り詰め（truncation）を検出しやすくするためにこうなっています。
+
+     ただし注意点として、
+     もし strlcat() が size バイトぶん探索しても NUL を見つけられなかった場合、
+     （つまり dst がNUL終端されていなかった場合）
+     そのときは、文字列の長さは size と見なされ、dst はNUL終端されません。
+
+     （NUL用のスペースが無かったので、NULを置けなかったため）
+
+     このチェックによって、strlcat()が文字列の末尾を越えて暴走するのを防いでいます。
+
+     実際には、
+     この状況は起きないはずです（なぜなら、そうなったら size が間違っているか、
+     もしくは dst が正しい「C文字列」ではないからです）。
+
+     このチェックは、誤ったコードにおける潜在的なセキュリティ問題を防ぐために存在しています。
+
+
+EXAMPLES
+     The following code fragment illustrates the simple case:
+     次のコード断片は、シンプルなケースを示しています：
+
+           char *s, *p, buf[BUFSIZ];
+
+           ...
+
+           (void)strlcpy(buf, s, sizeof(buf));
+           (void)strlcat(buf, p, sizeof(buf));
+
+     To detect truncation, perhaps while building a pathname, something like the following might
+     be used:
+
+     パス名などを組み立てる際に、切り詰め（truncation）を検出したい場合は、
+     次のようなコードが使われるかもしれません：
+
+           char *dir, *file, pname[MAXPATHLEN];
+
+           ...
+
+           if (strlcpy(pname, dir, sizeof(pname)) >= sizeof(pname))
+                   goto toolong;
+           if (strlcat(pname, file, sizeof(pname)) >= sizeof(pname))
+                   goto toolong;
+
+     Since it is known how many characters were copied the first time, things can be sped up a
+     bit by using a copy instead of an append:
+
+     最初にコピーした文字数が分かっている場合、
+     連結（append）ではなくコピー（copy）を使うことで、
+     少しだけ高速化できることもあります：
+
+           char *dir, *file, pname[MAXPATHLEN];
+           size_t n;
+
+           ...
+
+           n = strlcpy(pname, dir, sizeof(pname));
+           if (n >= sizeof(pname))
+                   goto toolong;
+           if (strlcpy(pname + n, file, sizeof(pname) - n) >= sizeof(pname) - n)
+                   goto toolong;
+
+     However, one may question the validity of such optimizations, as they defeat the whole pur‐
+     pose of strlcpy() and strlcat().  As a matter of fact, the first version of this manual
+     page got it wrong.
+
+     しかしながら、
+     このような最適化の正当性には疑問もあります。
+     なぜなら、こういった最適化は strlcpy() や strlcat() の本来の目的を台無しにしてしまうからです。
+     （実際、このマニュアルページの初版では、この点について間違って記載されていました。）
+
+SEE ALSO
+     snprintf(3), strncat(3), strncpy(3)
+
+HISTORY
+     The strlcpy() and strlcat() functions first appeared in OpenBSD 2.4, and made their appear‐
+     ance in FreeBSD 3.3.
+
+BSD                                       May 31, 2007                                       BSD

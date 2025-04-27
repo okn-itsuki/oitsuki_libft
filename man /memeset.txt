@@ -1,0 +1,40 @@
+MEMSET(3)                                   Linux Programmer's Manual                                  MEMSET(3)
+
+NAME
+       memset - fill memory with a constant byte
+
+SYNOPSIS（使用方法）
+       #include <string.h>
+
+       void *memset(void *s, int c, size_t n);
+
+DESCRIPTION
+       The  memset()  function fills the first n bytes of the memory area pointed to by s with the constant byte
+       c.
+       memset() 関数は、メモリ領域 s が指す最初の n バイトを、
+       指定されたバイト値 c で埋めます。
+
+RETURN VALUE
+       The memset() function returns a pointer to the memory area s.
+        memset() 関数は、メモリ領域 s へのポインタを返します
+
+ATTRIBUTES
+       For an explanation of the terms used in this section, see attributes(7).
+
+       ┌──────────┬───────────────┬─────────┐
+       │Interface │ Attribute     │ Value   │
+       ├──────────┼───────────────┼─────────┤
+       │memset()  │ Thread safety │ MT-Safe │
+       └──────────┴───────────────┴─────────┘
+CONFORMING TO
+       POSIX.1-2001, POSIX.1-2008, C89, C99, SVr4, 4.3BSD.
+
+SEE ALSO
+       bstring(3), bzero(3), swab(3), wmemset(3)
+
+COLOPHON
+       This page is part of release 5.10 of the Linux man-pages project.  A description of the project, informa‐
+       tion   about   reporting   bugs,   and   the   latest   version   of   this   page,   can   be  found  at
+       https://www.kernel.org/doc/man-pages/.
+
+GNU                                                2017-03-13                                          MEMSET(3)
