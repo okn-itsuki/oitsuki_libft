@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cheak_ft_strlcpy.c                                 :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 20:42:28 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/28 22:19:06 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/04/29 17:14:03 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	len = ft_strlen(src);
 	if (size == 0)
 		return (len);
-	while (i < size - 1  && src[i])
+	while (i < size - 1 && src[i])
 	{
 		dst[i] = src[i];
 		i++;
