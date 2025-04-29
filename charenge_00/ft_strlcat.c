@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 17:35:39 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/29 17:14:01 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/04/29 21:03:16 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 // int	main(void)
 // {
-// char	dst1[20] = "okuno";
-// char	src1[] = "itsuki";
+// char	dst1[20] = "I_Love_";
+// char	src1[] = "SMR";
 // printf("sizeof dst :%lu\n\n",sizeof(dst1));
 // printf("ft_strlcat:%lu\n", ft_strlcat(dst1, src1, sizeof(dst1)));
 // printf("%s\n\n", dst1);
