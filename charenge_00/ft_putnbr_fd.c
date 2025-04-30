@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 05:03:27 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 18:42:33 by oitsuki          ###   ########.fr       */
+/*   Created: 2025/04/30 17:23:07 by oitsuki           #+#    #+#             */
+/*   Updated: 2025/05/01 03:15:34 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, &c, 1);
+	char	*num;
+
+	num = ft_itoa(n);
+	ft_putstr_fd(num, fd);
 }
 
-// int	main(int ac, char const **av)
+// int	main(int ac, char **av)
 // {
 // 	if (ac < 3)
 // 		return (1);
-// 	ft_putchar_fd(av[1][0], atoi(av[2]));
+// 	ft_putnbr_fd(atoi(av[1]), atoi(av[2]));
 // 	return (0);
 // }

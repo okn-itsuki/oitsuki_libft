@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 18:16:29 by okunoitsuki       #+#    #+#             */
-/*   Updated: 2025/04/29 17:18:43 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 07:33:47 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!mem)
 		return (NULL);
 	ft_strlcpy(mem, s1, total_len);
-	ft_strlcat(mem, s2, total_len);
+	ft_strlcat(mem, s2, total_len + 1);
 	return (mem);
 }
 

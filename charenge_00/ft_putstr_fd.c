@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 05:43:14 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/27 17:18:27 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/04/30 18:12:08 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, &s, ft_strlen(s));
+	write(fd, s, ft_strlen(s));
 }
 
-// int	main(int ac, char const **av)
+// int	main(int ac, char **av)
 // {
 // 	if (ac < 3)
 // 		return (1);

@@ -6,13 +6,14 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 23:16:46 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 12:36:02 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 03:38:04 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdint.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -35,4 +36,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		is_space(char nptr);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_itoa(int n);
+int		ft_tolower(int c);
 #endif

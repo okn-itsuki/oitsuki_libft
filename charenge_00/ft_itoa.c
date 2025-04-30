@@ -6,20 +6,20 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 19:37:18 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 11:58:34 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 07:37:49 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_digit(int nbr)
+size_t	count_digit(long nbr)
 {
 	size_t	count;
 
 	count = 1;
 	if (nbr <= 0)
 		nbr = -(nbr);
-	while (nbr > 10)
+	while (nbr >= 10)
 	{
 		nbr /= 10;
 		count++;
@@ -32,22 +32,20 @@ char	*ft_itoa(int n)
 	long	num;
 	char	*str;
 	size_t	digit;
-	size_t	total_len;
 
-	digit = count_digit(n);
-	total_len = digit + (n < 0) + 1;
-	str = (char *)malloc(sizeof(char) * total_len);
+	num = n;
+	digit = count_digit(num);
+	str = (char *)malloc(sizeof(char) * (digit + (num < 0) + 1));
 	if (!str)
 		return (NULL);
-	num = n;
-	if (n < 0)
+	if (num < 0)
 	{
 		str[0] = '-';
 		num = -(num);
 	}
 	while (digit--)
 	{
-		str[digit + (n < 0)] = (num % 10) + '0';
+		str[digit + (num < 0) + 1] = (num % 10) + '0';
 		num /= 10;
 	}
 	return (str);
@@ -59,7 +57,7 @@ char	*ft_itoa(int n)
 // {
 // 	char	*s;
 
-// 	s = ft_itoa(12345);
+// 	s = ft_itoa(-2147483648);
 // 	if (s)
 // 	{
 // 		printf("%s\n", s);

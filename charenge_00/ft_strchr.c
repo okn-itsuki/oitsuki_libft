@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:58:19 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 12:50:07 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 07:35:58 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	size_t	i;
 
 	i = 0;
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
 	while (s[i])
 	{
 		if (s[i] == c)

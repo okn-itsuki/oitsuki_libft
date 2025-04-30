@@ -32,6 +32,8 @@
 		"bit": "c",
 		"stdint.h": "c",
 		"numbers": "c",
-		"string.h": "c"
+		"string.h": "c",
+		"stdio.h": "c",
+		"sstream": "c"
 	}
 }

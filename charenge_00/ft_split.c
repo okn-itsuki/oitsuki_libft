@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 05:03:27 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 18:42:33 by oitsuki          ###   ########.fr       */
+/*   Created: 2025/04/30 19:09:08 by oitsuki           #+#    #+#             */
+/*   Updated: 2025/05/01 07:18:05 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
-// int	main(int ac, char const **av)
+// int	mem_count(char const *s, char c)
 // {
-// 	if (ac < 3)
-// 		return (1);
-// 	ft_putchar_fd(av[1][0], atoi(av[2]));
+
+// }
+
+// char	**ft_split(char const *s, char c)
+// {
+
+// }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char const	*str;
+// 	char		set;
+// 	int			i;
+
+// 	str[] = "AAbbBBbbCC";
+// 	set[] = "b";
+// 	while (i < 3)
+// 	{
+// 		printf("%s", ft_split(str, set));
+// 	}
 // 	return (0);
 // }

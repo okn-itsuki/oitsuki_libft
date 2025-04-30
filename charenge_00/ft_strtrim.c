@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 01:49:29 by okunoitsuki       #+#    #+#             */
-/*   Updated: 2025/04/30 13:45:13 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 07:27:56 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 
 	i = 0;
+	len = ft_strlen(s1);
+	if (!s1 || !set)
+		return (NULL);
 	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
-	len = ft_strlen(s1);
-	if (len == 0)
+	if (i >= len)
 		return (NULL);
-	while (s1[len - 1] && ft_strchr(set, s1[len - 1]))
-		len--;
-	result = (char *)malloc((len - i + 1) * sizeof(char));
+	while (s1[--len] && ft_strchr(set, s1[len - 1]))
+		;
+	result = malloc(sizeof(char) * (len - i + 1));
 	if (!result)
 		return (NULL);
-	ft_strlcpy(result, &s1[i], sizeof(result) + 1);
+	ft_strlcpy(result, &s1[i], (len - i + 1));
 	return (result);
 }
 
@@ -37,8 +39,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int	main(void)
 // {
-// 	char const	str[] = "okuno.sumire.okuno";
-// 	char const	set[] = "okuno";
+// 	char const	str[] = "okunosumireokuno";
+// 	char const	set[] = "";
 
 // 	printf("%s", ft_strtrim(str, set));
 // 	return (0);

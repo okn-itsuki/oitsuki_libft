@@ -1,26 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 05:03:27 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 18:42:33 by oitsuki          ###   ########.fr       */
+/*   Created: 2025/05/01 03:16:46 by oitsuki           #+#    #+#             */
+/*   Updated: 2025/05/01 04:45:45 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+// static char	f_toupper(unsigned int i, char c)
+// {
+// 	c = c + i;
+// 	return (c);
+// }
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	write(fd, &c, 1);
+	char			*mem;
+	unsigned int	i;
+
+	i = 0;
+	mem = ft_strdup(s);
+	if (mem)
+	{
+		while (mem[i])
+		{
+			mem[i] = f(i, mem[i]);
+			i++;
+		}
+	}
+	return (mem);
 }
 
-// int	main(int ac, char const **av)
+// int	main(void)
 // {
-// 	if (ac < 3)
-// 		return (1);
-// 	ft_putchar_fd(av[1][0], atoi(av[2]));
+// 	char	str[] = "aaaa";
+// 	char	*mem;
+
+// 	mem = ft_strmapi(str, (*f_toupper));
+// 	printf("%s", mem);
+// 	free(mem);
 // 	return (0);
 // }
