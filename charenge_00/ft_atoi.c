@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 03:35:58 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/29 20:40:20 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/04/30 13:44:59 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	nb = 0;
 	flag = 1;
-	while (nptr[i] >= 0x09 && nptr[i] <= 0x0D || nptr[i] == ' ')
+	while ((nptr[i] >= 0x09 && nptr[i] <= 0x0D) || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{

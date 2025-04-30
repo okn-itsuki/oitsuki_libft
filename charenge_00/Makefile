@@ -6,7 +6,7 @@
 #    By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 05:02:44 by oitsuki           #+#    #+#              #
-#    Updated: 2025/04/27 01:14:48 by oitsuki          ###   ########.fr        #
+#    Updated: 2025/04/29 22:13:35 by oitsuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RM		:= rm -f
 INC		:= libft.h
 SRCS	:= $(wildcard ft_*.c)
 OBJS	:= $(SRCS:.c=.o)
-CFLAGS	:= -Wall -Wextra -Werror $(INC)
+CFLAGS	:= -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
 	ar rcs $@ $^

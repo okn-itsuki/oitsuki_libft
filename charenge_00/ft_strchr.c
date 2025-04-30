@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:58:19 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/28 06:05:01 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/04/30 12:50:07 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			break ;
+			return ((char *)&s[i]);
 		i++;
 	}
-	return ((char *)&s[i]);
+	return (NULL);
 }
 
 // #include <stdio.h>
@@ -36,3 +36,8 @@ char	*ft_strchr(const char *s, int c)
 // 	printf("%s", ft_strchr(str, 'c'));
 // 	return (0);
 // }
+// mallocで確保したメモリに文字列 *s1 の先頭と末尾から *set で指定された文字が削除されたコピーを返します。
+// 資料：https://ttssh2.osdn.jp/manual/4/ja/macro/command/strtrim.html
+// s1="1AAA22331122”
+// set="1234"
+// 戻り値="AAA"
