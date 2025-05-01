@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   fft_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 19:09:08 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 21:17:32 by oitsuki          ###   ########.fr       */
+/*   Created: 2025/05/01 21:30:42 by oitsuki           #+#    #+#             */
+/*   Updated: 2025/05/01 22:12:42 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	my_strprt(char *str, char c) //(*s , '_')
+static size_t	len_count(char const *s, char c)
 {
 	size_t	len;
-	char	*mem;
-	size_t	i;
 
 	len = 0;
-	while (str[len] != '\0' || str[len] != c)
-		len++;
-	return (&str[len - 1]);
-}
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	char	*mem;
-	size_t	i;
-
-	mem = (char *)malloc(sizeof(char) * (n + 1));
-	if (mem == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i] && i < n)
+	while (s[len])
 	{
-		mem[i] = s[i];
-		i++;
+		if (s[len] == c)
+			break ;
+		len++;
 	}
-	mem[i] = '\0';
-	return (mem);
+	return (len);
 }
 
 static size_t	mem_count(char const *s, char c)
@@ -64,18 +48,18 @@ static size_t	mem_count(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
+	size_t	count;
 	size_t	i;
 	char	**mem;
 
-	i = mem_count(s, c);
-	while (i--)
+	i = 0;
+	count = mem_count(s, c);
+	mem = (char **)malloc(sizeof(char *) * count);
+	while (i < count)
 	{
-		mem[i] = (char *)malloc(sizeof(char));
-		if (!mem[i])
-			return (NULL);
-		mem[i] = ft_strtrim(my_strprt(s, c), c);
+		mem[i] = ft_strndup(s, len_count(s, c));
+		i++;
 	}
-	return (mem);
 }
 
 #include <stdio.h>
@@ -87,7 +71,7 @@ int	main(void)
 	char		**result;
 	int			i;
 
-	str[] = "I_Love_banaa_and_surime";
+	str[] = "I_Love_banana_and_sumire";
 	set[] = "_";
 	result = ft_split(str, set);
 	while (result[i])

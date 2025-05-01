@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:58:19 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 08:59:57 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 16:12:03 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ char	*ft_strchr(const char *s, int c)
 
 // #include <stdio.h>
 // #include <stdlib.h>
+// #include <string.h>
 
 // int	main(void)
 // {
-// 	char	str[] = "abcdef123";
+// 	char	str[] = "aaa";
 
-// 	printf("%s", ft_strchr(str, 'c'));
+// 	printf("%s\n", ft_strchr(str, 'c'));
+// 	printf("%s\n", strchr(str, 'c'));
 // 	return (0);
 // }

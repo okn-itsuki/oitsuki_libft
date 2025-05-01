@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:35:05 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 08:56:19 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 19:46:56 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,40 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	i = 0;
-	if (dest == NULL || src == NULL)
-		return (NULL);
+	if (!d && !s)
+		return (dest);
 	while (i < n)
 	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		d[i] = s[i];
 		i++;
 	}
 	return (dest);
 }
 
+// #include <string.h>
+
 // int	main(void)
 
 // {
 // 	int i;
-// 	char buff_a[10];
-// 	char buff_b[10];
-// 	char a[] = "aaa";
-// 	char b[] = "bbbb";
+// 	char buff_a[10] = "*****";
+// 	char buff_b[10] = "*****";
+// 	char *a = "aaa";
+// 	char *b = "bbbb";
 
 // 	i = 0;
-// 	ft_memcpy(buff_a, a, sizeof(a));
-// 	ft_memcpy(buff_b, b, sizeof(b));
-// 	while (i < 10)
-// 	{
-// 		write(1, &a[i], 1);
-// 		i++;
-// 	}
-// 	write(1, "\n", 1);
-// 	i = 0;
-// 	while (i < 10)
-// 	{
-// 		write(1, &b[i], 1);
-// 		i++;
-// 	}
+
+// 	printf("%s\n", (char *)ft_memcpy(buff_a, a, sizeof(a)));
+// 	printf("%s\n", (char *)memcpy(buff_a, a, sizeof(a)));
+// 	printf("%s\n", (char *)ft_memcpy(NULL, NULL, 0));
+// 	printf("%s\n", (char *)memcpy(NULL, NULL, 0));
+
 // 	return (0);
 // }

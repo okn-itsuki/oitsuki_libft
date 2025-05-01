@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:52:26 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/27 15:53:46 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 16:52:00 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + 0x20);
+		return (c + 32);
 	return (c);
 }

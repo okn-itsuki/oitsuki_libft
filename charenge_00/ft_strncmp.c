@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 19:50:11 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 13:31:30 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 20:17:52 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (i < n)
 	{
 		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] == '\0' || s2[i] == '\0')
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
