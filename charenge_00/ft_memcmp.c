@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 06:09:12 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/28 06:29:56 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 13:13:18 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (i < n && (c1[i] == c2[i]))
+	while (i < n)
 	{
 		if (c1[i] != c2[i])
-			break ;
+			return (c1[i] - c2[i]);
 		i++;
 	}
-	return ((unsigned char)c1[i] - (unsigned char)c2[i]);
+	return (0);
 }
 
 // #include <stdio.h>
@@ -39,6 +39,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 // 	char	c1[] = "okunob";
 // 	char	c2[] = "okunoa";
 
-// 	printf("%d", ft_memcmp(c1, c2, sizeof(c1)));
+// 	printf("%d", ft_memcmp(c1, c2, 3));
 // 	return (0);
 // }

@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 05:47:09 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/30 12:45:42 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 12:57:50 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,21 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	len;
 
-	len = ft_strlen(s);
-	while (1)
+	len = ft_strlen(s) + 1;
+	while (len--)
 	{
-		if (s[len] == (char)c)
+		if ((unsigned char)s[len] == (unsigned char)c)
 			return ((char *)&s[len]);
-		if (len == (size_t)c)
-			break ;
-		len--;
 	}
 	return (NULL);
 }
 
-// #include <stdio.h>
+//#include <stdio.h>
 
 // int	main(void)
 // {
-// 	char	c[] = "AABCEFD1A3";
+// 	char	c[] = "AABCEFD1A3A";
 
-// 	printf("%s", ft_strrchr(c, 'A'));
+// 	printf("%s", ft_strrchr(c, ''));
 // 	return (0);
 // }

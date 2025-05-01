@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:02:53 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/28 04:56:53 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 13:04:26 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		s += direction;
 		n--;
 	}
-	return (d);
+	return (dest);
 }
 // #include <stdio.h>
 

@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:35:05 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/28 04:47:02 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 08:56:19 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
+	if (dest == NULL || src == NULL)
+		return (NULL);
 	while (i < n)
 	{
 		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];

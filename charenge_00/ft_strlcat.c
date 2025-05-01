@@ -6,20 +6,39 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 17:35:39 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 07:30:25 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/01 08:50:37 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	ft_strnlen(char *str, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] && n--)
+		i++;
+	return (i);
+}
+
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	len;
+	size_t	dest_size;
+	size_t	i;
 
-	len = ft_strlen(dst);
-	if (len + ft_strlen(src) >= size)
-		return (len + ft_strlen(src));
-	return (len + ft_strlcpy(dst + len, src, size - len));
+	dest_size = ft_strnlen(dst, size);
+	if (dest_size == size)
+		return (size + ft_strlen(src));
+	i = 0;
+	while (src[i] && dest_size + i + 1 < size)
+	{
+		dst[dest_size + i] = src[i];
+		i++;
+	}
+	if (dest_size + i < size)
+		dst[dest_size + i] = '\0';
+	return (dest_size + ft_strlen(src));
 }
 
 // #include <stdio.h>
