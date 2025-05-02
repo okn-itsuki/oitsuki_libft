@@ -6,7 +6,7 @@
 /*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 01:42:03 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/04/25 09:50:47 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/02 10:35:02 by oitsuki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	len = ft_strlen(s);
 	i = 0;
 	mem = (char *)malloc(sizeof(char) * len + 1);
-	if (mem == NULL)
+	if (!mem)
 		return (NULL);
 	while (s[i] != '\0')
 	{
