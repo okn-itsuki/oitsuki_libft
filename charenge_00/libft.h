@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 23:16:46 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 19:17:35 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/03 00:37:07 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct	s_list
+{
+	void					*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -51,5 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+t_list *ft_lstnew(void *content);
 
 #endif

@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 15:58:19 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/03 01:34:21 by okunoitsuki      ###   ########.fr       */
+/*   Created: 2025/05/03 00:32:18 by okunoitsuki       #+#    #+#             */
+/*   Updated: 2025/05/03 01:19:03 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if ((unsigned char)s[i] == (unsigned char)c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if (c == '\0')
-		return ((char *)s + i);
-	return (NULL);
+    if( lst || *lst || new  )
+    {
+        new->next = *lst;
+        *lst = new;
+    }
 }
 
 // #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-
-// int	main(void)
+// int main()
 // {
-// 	char	str[] = "aaa";
+//     char    *str = "hi,naoki";
+//     t_list  *naoki = ft_lstnew((void *)str);
+//     t_list  *naoki_new;
 
-// 	printf("%s\n", ft_strchr(str, 'c'));
-// 	printf("%s\n", strchr(str, 'c'));
-// 	return (0);
+//     if(naoki == NULL)
+//         return 1;
+
+//     ft_lstadd_front(&naoki,naoki_new);
+//     return 0;
 // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 19:09:08 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/02 10:34:50 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/03 01:29:00 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,20 +94,20 @@ char	**ft_split(char const *s, char c)
 	return (mem);
 }
 
-int	main(void)
-{
-	char const	*str;
-	char		set;
-	char		**result;
-	int			i;
+// int	main(void)
+// {
+// 	char const	*str;
+// 	char		set;
+// 	char		**result;
+// 	int			i;
 
-	str = "_____I_Love__banaa_and_naoki";
-	set = '_';
-	result = ft_split(str, set);
-	while (result[i])
-	{
-		printf("%s\n", result[i]);
-		i++;
-	}
-	return (0);
-}
+// 	str = "_____I_Love__banaa_and_naoki";
+// 	set = '_';
+// 	result = ft_split(str, set);
+// 	while (result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
