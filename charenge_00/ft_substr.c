@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 17:36:22 by okunoitsuki       #+#    #+#             */
-/*   Updated: 2025/05/01 15:26:19 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/03 04:00:38 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

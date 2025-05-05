@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 01:49:29 by okunoitsuki       #+#    #+#             */
-/*   Updated: 2025/05/01 16:49:13 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/03 04:00:21 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 
 	start = 0;
-	end = ft_strlen(s1);
 	if (!s1)
 		return (NULL);
+	end = ft_strlen(s1);
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
 	if (start >= end)
@@ -38,8 +38,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int	main(void)
 // {
-// 	char const	str[] = "sumiresumiresumire";
-// 	char const	set[] = "sumire";
+// 	char const	str[] = "okunosumireokuno";
+// 	char const	set[] = "okuno";
 
 // 	printf("%s", ft_strtrim(str, set));
 // 	return (0);

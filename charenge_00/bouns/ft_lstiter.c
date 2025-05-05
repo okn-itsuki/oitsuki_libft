@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 05:47:09 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 03:13:17 by okunoitsuki      ###   ########.fr       */
+/*   Created: 2025/05/04 21:46:00 by okunoitsuki       #+#    #+#             */
+/*   Updated: 2025/05/04 22:02:08 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strrchr(const char *s, int c)
+void ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	len;
+    if(!lst | !f)
+        return;
+    while (lst)
+    {
+        f(lst->content);
+        lst = lst->next;
+    }
 
-	len = ft_strlen(s) + 1;
-	while (len--)
-	{
-		if ((unsigned char)s[len] == (unsigned char)c)
-			return ((char *)&s[len]);
-	}
-	return (NULL);
 }
-
-//#include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	c[] = "AABCEFD1A3A";
-
-// 	printf("%s", ft_strrchr(c, ''));
-// 	return (0);
-// }

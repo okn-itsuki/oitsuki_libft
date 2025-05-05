@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+         #
+#    By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 05:02:44 by oitsuki           #+#    #+#              #
-#    Updated: 2025/05/01 20:09:08 by oitsuki          ###   ########.fr        #
+#    Updated: 2025/05/05 20:36:49 by okunoitsuki      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,17 @@ SRCS	:=  ft_atoi.c \
         ft_substr.c \
         ft_tolower.c \
         ft_toupper.c
-OBJS	:= $(SRCS:.c=.o)
+
+BRONS_SRCS :=   ft_lstadd_back.c \
+        ft_lstadd_front.c \
+        ft_lstclear.c \
+        ft_lstdelone.c \
+        ft_lstiter.c \
+        ft_lstlast.c \
+        ft_lstmap.c \
+        ft_lstnew.c \
+        ft_lstsize.c
+OBJS	:= $(info 💬 SRCS:.c=.o)
 CFLAGS	:= -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
@@ -56,6 +66,8 @@ $(NAME) : $(OBJS)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c  $< -o $@
+
+bonus :
 
 all : $(NAME)
 

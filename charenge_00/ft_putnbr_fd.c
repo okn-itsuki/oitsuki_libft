@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 17:23:07 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/01 19:25:06 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/05 06:35:45 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	char	num;
 	long	nb;
 
-	nb = (long)n;
+	nb = n;
 	if (nb < 0)
 	{
 		write(fd, "-", 1);

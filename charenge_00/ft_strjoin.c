@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oitsuki <oitsuki@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 18:16:29 by okunoitsuki       #+#    #+#             */
-/*   Updated: 2025/05/01 07:33:47 by oitsuki          ###   ########.fr       */
+/*   Updated: 2025/05/05 03:13:20 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*mem;
 	size_t	total_len;
 
+	if (!s1 || !s2)
+		return(ft_strdup(""));
 	total_len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	mem = (char *)malloc(total_len * sizeof(char));
 	if (!mem)

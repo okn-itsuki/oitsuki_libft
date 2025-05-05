@@ -6,7 +6,7 @@
 /*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 19:09:08 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/03 01:29:00 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/05 03:17:22 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
-static char	*ft_strndup(const char *s, char len)
+static char	*ft_strndup(const char *s, size_t len)
 {
 	char	*word;
 	size_t	i;
@@ -53,12 +53,15 @@ static char	*ft_strndup(const char *s, char len)
 
 static void	free_all(char **mem, int i)
 {
-	while (i--)
+	while (i < 0)
+	{
 		free(mem[i]);
+		i--;
+	}
 	free(mem);
 }
 
-static char	mem_lock(char const *s, char c, char *mem)
+static void	mem_lock(char const *s, char c, char **mem)
 {
 	size_t	temp_len;
 	size_t	i;
@@ -73,7 +76,7 @@ static char	mem_lock(char const *s, char c, char *mem)
 				temp_len++;
 			mem[i] = ft_strndup(s, temp_len);
 			if (!mem[i])
-				return (free_all(&mem, i), NULL);
+				free_all(&mem[i], i);
 			i++;
 			s += temp_len;
 		}
@@ -90,7 +93,7 @@ char	**ft_split(char const *s, char c)
 	mem = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!mem)
 		return (NULL);
-	mem_lock(s, c, &mem);
+	mem_lock(s, c, mem);
 	return (mem);
 }
 

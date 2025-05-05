@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 05:47:09 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 03:13:17 by okunoitsuki      ###   ########.fr       */
+/*   Created: 2025/05/03 02:25:22 by okunoitsuki       #+#    #+#             */
+/*   Updated: 2025/05/03 04:00:50 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	len;
-
-	len = ft_strlen(s) + 1;
-	while (len--)
-	{
-		if ((unsigned char)s[len] == (unsigned char)c)
-			return ((char *)&s[len]);
-	}
-	return (NULL);
+    if (!lst)
+        return (NULL);
+    while (lst->next)
+        lst = lst->next;
+    return (lst);
 }
-
-//#include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	c[] = "AABCEFD1A3A";
-
-// 	printf("%s", ft_strrchr(c, ''));
-// 	return (0);
-// }

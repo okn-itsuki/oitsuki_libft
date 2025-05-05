@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 05:47:09 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 03:13:17 by okunoitsuki      ###   ########.fr       */
+/*   Created: 2025/05/03 17:56:32 by okunoitsuki       #+#    #+#             */
+/*   Updated: 2025/05/05 03:13:11 by okunoitsuki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
-
-char	*ft_strrchr(const char *s, int c)
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	size_t	len;
-
-	len = ft_strlen(s) + 1;
-	while (len--)
-	{
-		if ((unsigned char)s[len] == (unsigned char)c)
-			return ((char *)&s[len]);
-	}
-	return (NULL);
+    if(!lst | !del)
+        return;
+    del(lst->content);
+    free(lst);
 }
 
-//#include <stdio.h>
-
-// int	main(void)
+// int main()
 // {
-// 	char	c[] = "AABCEFD1A3A";
 
-// 	printf("%s", ft_strrchr(c, ''));
-// 	return (0);
+//     return 0;
 // }
