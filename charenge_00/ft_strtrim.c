@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 01:49:29 by okunoitsuki       #+#    #+#             */
-/*   Updated: 2025/05/03 04:00:21 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/06 19:40:45 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	if (start >= end)
-		return (ft_strdup(""));
 	while (s1[end - 1] && ft_strrchr(set, s1[end - 1]))
 		end--;
+	if (start >= end)
+		return (ft_strdup(""));
 	result = malloc(sizeof(char) * (end - start + 1));
 	if (!result)
 		return (NULL);
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int	main(void)
 // {
-// 	char const	str[] = "okunosumireokuno";
+// 	char const	str[] = "okunosumireokuno";s
 // 	char const	set[] = "okuno";
 
 // 	printf("%s", ft_strtrim(str, set));

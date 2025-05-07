@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:35:05 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 06:47:36 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/06 07:50:06 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*d;
+	size_t				i;
+	unsigned char		*d;
 	const unsigned char	*s;
 
 	d = (unsigned char *)dest;

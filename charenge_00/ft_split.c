@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 19:09:08 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 03:17:22 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/07 18:11:38 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	count_words(const char *s, char c)
 
 	count = 0;
 	flag = 0;
-	while (*s++)
+	while (*s)
 	{
 		if (!flag && *s != c)
 		{
@@ -29,6 +29,7 @@ static int	count_words(const char *s, char c)
 		}
 		else if (*s == c)
 			flag = 0;
+		s++;
 	}
 	return (count);
 }
@@ -55,8 +56,8 @@ static void	free_all(char **mem, int i)
 {
 	while (i < 0)
 	{
-		free(mem[i]);
 		i--;
+		free(mem[i]);
 	}
 	free(mem);
 }
@@ -90,6 +91,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**mem;
 
+	if (!s)
+		return (NULL);
 	mem = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!mem)
 		return (NULL);

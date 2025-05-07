@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 07:59:42 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 01:56:07 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/07 06:42:40 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*mem;
 
-	if (size != 0 && nmemb > ~0ul / size)
+	if (size != 0 && nmemb > SIZE_MAX / size)
 		return (ft_strdup(""));
 	mem = malloc(nmemb * size);
 	if (mem == NULL)

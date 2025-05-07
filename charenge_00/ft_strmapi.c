@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 03:16:46 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 20:00:17 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/06 07:50:51 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*mem;
+	char	*mem;
 	size_t	i;
 
 	i = 0;

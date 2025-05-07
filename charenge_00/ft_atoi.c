@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 03:35:58 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 20:52:23 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/07 18:03:28 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	nb = 0;
 	flag = 1;
-	while ((nptr[i] >= (char)9 && nptr[i] <= (char)13) || nptr[i] == (char)' ')
+	while ((nptr[i] >= (char)9 && nptr[i] <= (char)13) || nptr[i] == (char)32)
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{

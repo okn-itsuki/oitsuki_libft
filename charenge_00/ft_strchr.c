@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ft_strchr.c                                  :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okunoitsuki <okunoitsuki@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iokuno <iokuno@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:58:19 by oitsuki           #+#    #+#             */
-/*   Updated: 2025/05/05 06:45:28 by okunoitsuki      ###   ########.fr       */
+/*   Updated: 2025/05/06 23:20:35 by iokuno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)s + i);
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
 	return (NULL);
 }
 
@@ -36,7 +36,7 @@ char	*ft_strchr(const char *s, int c)
 // {
 // 	char	str[] = "aaa";
 
-// 	printf("%s\n", ft_strchr(str, 'c'));
-// 	printf("%s\n", strchr(str, 'c'));
+// 	printf("%s\n", ft_strchr(str, 't' + 256));
+// 	printf("%s\n", strchr(str, 't' + 256));
 // 	return (0);
 // }
